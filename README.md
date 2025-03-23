@@ -13,6 +13,9 @@ Este repositorio contiene las lecciones del bootcamp de Machine Learning en form
 > bash export.sh
 > 🔥 Remember to run the `$ bash export` command.
 
+    Este comando convertirá todos los archivos .ipynb en archivos .md utilizando jupyter nbconvert.
+    Asegúrate de tener instalado jupyter antes de ejecutar el script.
+
 ## Python (3 days)
 
 1. Python for Datascience
