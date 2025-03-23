@@ -1,8 +1,16 @@
 # Machine Learning Bootcamp
+Este repositorio contiene las lecciones del bootcamp de Machine Learning en formato Jupyter Notebook.
+
+
+## 📤 Exportación de contenido
 
 1. Use the `export` folder for publishing pursposes, all lessons are compiled into that folder.
-2. Compile original lessons by running `bash export.sh`
+> Utiliza la carpeta `export` para propósitos de publicación o distribución.  
+> Todas las lecciones compiladas en formato Markdown se guardan ahí automáticamente.
 
+2. Compile original lessons by running `bash export.sh`
+> Para compilar las lecciones originales desde los notebooks:
+> bash export.sh
 > 🔥 Remember to run the `$ bash export` command.
 
 ## Python (3 days)
@@ -16,7 +24,7 @@
 2. Linear Algebra 
 
 📝 Calculus and Linear algebra problems
-
+`
 3. Probability
 
 📝 Probability problems 

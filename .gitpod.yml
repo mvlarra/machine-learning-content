@@ -1,18 +1,54 @@
-image:
-    file: .gitpod.dockerfile
+# ¿Qué logra este .gitpod.yml?
+#     Usa una imagen personalizada (.gitpod.dockerfile).
+#     Instala los paquetes de Python automáticamente.
+#     Expone puertos entre 9000-9099 sin abrir vistas previas.
+#     Configura extensiones útiles para notebooks y Python.
 
-# List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+
+# ---------------------------------------------------------------------------------------------------
+
+image:
+    file: .gitpod.dockerfile  # Usa el archivo .gitpod.dockerfile como base del entorno
+#🔹 ¿Qué hace?
+# Le indica a Gitpod que construya el entorno usando tu propio Dockerfile, que en este caso se encuentra en .gitpod.dockerfile.
+# Esto te da control total sobre qué herramientas y versiones se instalan.
+
+# ---------------------------------------------------------------------------------------------------
 tasks:
     - init: >
-          pip install -r "requirements.txt";
-      command: >
-          pip install -r "requirements.txt";
-# List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
-ports:
-    - port: 9000-9099
-      onOpen: ignore
+          pip install -r "requirements.txt";  
+          pip install -r "requirements.txt";  
 
+# 🔹 ¿Qué hace?
+#     init: Este comando se ejecuta una sola vez la primera vez que se crea el workspace. Aquí instala los paquetes de Python definidos en requirements.txt.
+#     command: Este comando se ejecuta cada vez que abres el workspace. En este caso, es igual al init, por lo que volverá a ejecutar la instalación cada vez (aunque normalmente podrías hacer algo diferente, como iniciar un servidor o Jupyter).
+#     💡 Podrías diferenciar los comandos, por ejemplo:
+#           init: pip install -r requirements.txt
+#           command: jupyter notebook
+
+# ---------------------------------------------------------------------------------------------------
+
+# Lista de puertos a exponer. Más info: https://www.gitpod.io/docs/config-ports/
+ports:
+    - port: 9000-9099            # Gitpod escuchará puertos del 9000 al 9099 si algún proceso los usa
+      onOpen: ignore             # No abrirá automáticamente una vista previa del navegador cuando se expongan esos puertos
+
+# 🔹 ¿Qué hace?
+#     Gitpod abrirá los puertos del 9000 al 9099 si algún proceso los usa.
+#     onOpen: ignore significa que Gitpod no abrirá automáticamente la vista previa del navegador 
+#     cuando se expongan estos puertos (útil si son puertos técnicos o secundarios).
+
+
+# ---------------------------------------------------------------------------------------------------
+
+# Configura extensiones de VS Code que se instalarán automáticamente en el entorno
 vscode:
     extensions:
-        - ms-toolsai.jupyter
-        - vscode.python
+        - ms-toolsai.jupyter     # Extensión oficial de Jupyter para trabajar con notebooks
+        - vscode.python          # Extensión oficial de Python para desarrollo en VS Code
+
+# 🔹 ¿Qué hace?
+#     Al iniciar el workspace, Gitpod instalará automáticamente estas extensiones en VS Code:
+#         ms-toolsai.jupyter: soporte para notebooks
+#         vscode.python: soporte para desarrollo en Python
+# Esto asegura que puedas trabajar cómodamente con Jupyter y Python sin tener que instalarlas manualmente.
